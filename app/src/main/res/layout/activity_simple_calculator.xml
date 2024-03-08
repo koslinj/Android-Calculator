@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SimpleCalculator"
+    tools:ignore="HardcodedText"
+    android:id="@+id/layoutSimple">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/writingPart"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/helperTv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textAlignment="viewEnd"
+            android:layout_weight="1"
+            android:textSize="52sp"/>
+
+        <TextView
+            android:id="@+id/resultTv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textAlignment="viewEnd"
+            android:layout_weight="1.5"
+            android:textSize="68sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/buttonsPart"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout style="@style/row">
+
+            <Button
+                style="@style/numberButton"
+                android:onClick="handleClear"
+                android:text="AC"
+                android:textColor="@color/red" />
+
+            <Button
+                style="@style/numberButton"
+                android:layout_weight="2"
+                android:onClick="handleBackspace"
+                android:text="⌫"
+                android:textColor="@color/red"
+                android:textSize="36sp"/>
+
+            <Button
+                style="@style/operationButton"
+                android:text="÷"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+
+            <Button
+                style="@style/numberButton"
+                android:text="7" />
+
+            <Button
+                style="@style/numberButton"
+                android:text="8" />
+
+            <Button
+                style="@style/numberButton"
+                android:text="9" />
+
+            <Button
+                style="@style/operationButton"
+                android:text="X" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+
+            <Button
+                style="@style/numberButton"
+                android:text="4" />
+
+            <Button
+                style="@style/numberButton"
+                android:text="5" />
+
+            <Button
+                style="@style/numberButton"
+                android:text="6" />
+
+            <Button
+                style="@style/operationButton"
+                android:text="-"
+                android:textSize="36sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+
+            <Button
+                style="@style/numberButton"
+                android:text="1" />
+
+            <Button
+                style="@style/numberButton"
+                android:text="2" />
+
+            <Button
+                style="@style/numberButton"
+                android:text="3" />
+
+            <Button
+                style="@style/operationButton"
+                android:text="+"
+                android:textSize="40sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/row">
+
+            <Button
+                style="@style/numberButton"
+                android:text="0" />
+
+            <Button
+                style="@style/numberButton"
+                android:text="," />
+
+            <Button
+                style="@style/numberButton"
+                android:layout_weight="2"
+                android:backgroundTint="@color/green"
+                android:onClick="handleEquals"
+                android:text="="
+                android:textSize="36sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
