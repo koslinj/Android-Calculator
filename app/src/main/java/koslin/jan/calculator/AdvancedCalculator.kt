@@ -52,6 +52,20 @@ class AdvancedCalculator : AppCompatActivity() {
                 val currentText = binding.helperTv.text.toString()
                 val newText = "${view.text}($currentText)"
                 binding.helperTv.text = newText
+            } else if (view.text == "+/-") {
+                val currentText = binding.helperTv.text.toString()
+                if (currentText[0] == '-') binding.helperTv.text = currentText
+                else binding.helperTv.text = "-$currentText"
+                canMakeOperation = true
+                return
+            } else if (view.text == "x^2") {
+                val currentText = binding.helperTv.text.toString()
+                val newText = "($currentText)^2"
+                binding.helperTv.text = newText
+            } else if (view.text == "x^y") {
+                val currentText = binding.helperTv.text.toString()
+                val newText = "($currentText)^"
+                binding.helperTv.text = newText
             } else {
                 binding.helperTv.append(view.text)
             }
@@ -68,7 +82,6 @@ class AdvancedCalculator : AppCompatActivity() {
         val len = binding.helperTv.text.length
         if (len > 0) {
             if (binding.helperTv.text.get(len - 1) == ')') {
-
                 var i = 0
                 while (binding.helperTv.text.get(i) != '(') {
                     i++
