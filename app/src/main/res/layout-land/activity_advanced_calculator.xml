@@ -12,21 +12,28 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/helperTv"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="60sp" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/helperTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="60sp" />
 
-        <TextView
-            android:id="@+id/resultTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="72sp" />
+            <TextView
+                android:id="@+id/resultTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="72sp" />
+        </LinearLayout>
 
-        <LinearLayout style="@style/row">
+        <LinearLayout style="@style/row"
+            android:layout_weight="0.5">
 
             <Button
                 style="@style/operationButton"
@@ -45,7 +52,8 @@
                 android:text="ln" />
         </LinearLayout>
 
-        <LinearLayout style="@style/row">
+        <LinearLayout style="@style/row"
+            android:layout_weight="0.5">
 
             <Button
                 style="@style/operationButton"
