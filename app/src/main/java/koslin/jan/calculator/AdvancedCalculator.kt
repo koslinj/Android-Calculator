@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import koslin.jan.calculator.databinding.ActivityAdvancedCalculatorBinding
 import org.mariuszgromada.math.mxparser.Expression
+import java.text.DecimalFormat
 
 
 class AdvancedCalculator : AppCompatActivity() {
@@ -21,8 +22,7 @@ class AdvancedCalculator : AppCompatActivity() {
         binding = ActivityAdvancedCalculatorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.helperTv.text = "log(3,27)"
-        //binding.helperTv.text = savedInstanceState?.getCharSequence(HELPER_STATE);
+        binding.helperTv.text = savedInstanceState?.getCharSequence(HELPER_STATE);
         binding.resultTv.text = savedInstanceState?.getCharSequence(RESULT_STATE);
     }
 
@@ -50,7 +50,10 @@ class AdvancedCalculator : AppCompatActivity() {
                 view.text == "log"
             ) {
                 val currentText = binding.helperTv.text.toString()
-                val newText = "${view.text}($currentText)"
+                var newText = "${view.text}($currentText)"
+                if(view.text == "log"){
+                    newText = newText.replace('.',',')
+                }
                 binding.helperTv.text = newText
             } else if (view.text == "+/-") {
                 val currentText = binding.helperTv.text.toString()
@@ -93,6 +96,11 @@ class AdvancedCalculator : AppCompatActivity() {
 
     fun handleEquals(view: View) {
         val e = Expression(binding.helperTv.text.toString())
-        binding.resultTv.text = e.calculate().toString()
+        val rawResult = e.calculate()
+
+        val decimalFormat = DecimalFormat("#.#######")
+        val formattedResult = decimalFormat.format(rawResult)
+
+        binding.resultTv.text = formattedResult
     }
 }

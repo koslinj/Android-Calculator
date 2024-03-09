@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import koslin.jan.calculator.databinding.ActivitySimpleCalculatorBinding
 import org.mariuszgromada.math.mxparser.Expression
+import java.text.DecimalFormat
 
 class SimpleCalculator : AppCompatActivity() {
     private lateinit var binding: ActivitySimpleCalculatorBinding
@@ -89,8 +90,12 @@ class SimpleCalculator : AppCompatActivity() {
 
     fun handleEquals(view: View) {
         val e = Expression(binding.helperTv.text.toString())
-        val res = e.calculate().toString()
-        vm.setResult(res)
+        val rawResult = e.calculate()
+
+        val decimalFormat = DecimalFormat("#.#######")
+        val formattedResult = decimalFormat.format(rawResult)
+
+        vm.setResult(formattedResult)
         binding.resultTv.text = vm.result.value
     }
 }
