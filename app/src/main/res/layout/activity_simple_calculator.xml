@@ -58,8 +58,7 @@
 
             <Button
                 style="@style/operationButton"
-                android:text="÷"
-                android:textSize="30sp" />
+                android:text="/" />
         </LinearLayout>
 
         <LinearLayout style="@style/row">
@@ -78,7 +77,7 @@
 
             <Button
                 style="@style/operationButton"
-                android:text="X" />
+                android:text="*" />
         </LinearLayout>
 
         <LinearLayout style="@style/row">
