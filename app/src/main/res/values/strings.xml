@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Calculator</string>
-    <string name="description">Aplikacja dostarczająca funkcjonalność kalkulatora. Możliwy jest wybór pomiędzy kalkulatorem prostym i zaawansowanym</string>
+    <string name="description">The application provides calculator functionality. It is possible to choose between a simple and advanced calculator.</string>
+    <string name="kalkulator_prosty">Simple Calculator</string>
+    <string name="kalkulator_zaawansowany">Advanced Calculator</string>
+    <string name="o_aplikacji">About</string>
 </resources>

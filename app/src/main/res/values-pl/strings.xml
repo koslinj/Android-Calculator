@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalkulator</string>
+    <string name="description">Aplikacja dostarczająca funkcjonalność kalkulatora. Możliwy jest wybór pomiędzy kalkulatorem prostym i zaawansowanym</string>
+    <string name="kalkulator_prosty">Kalkulator Prosty</string>
+    <string name="kalkulator_zaawansowany">Kalkulator Zaawansowany</string>
+    <string name="o_aplikacji">O aplikacji</string>
+</resources>
