@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:text="INFORMACJE O APLIKACJI"
+        android:text="@string/informacje_o_aplikacji"
         android:textAlignment="center"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Autor: "
+                android:text="@string/autor"
                 android:textSize="28sp"
                 android:textStyle="bold"/>
 
@@ -58,7 +58,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nr indeksu: "
+                android:text="@string/nr_indeksu"
                 android:textSize="28sp"
                 android:textStyle="bold"/>
 
@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nazwa: "
+                android:text="@string/nazwa"
                 android:textSize="28sp"
                 android:textStyle="bold"/>
 
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Kalkulator"
+                android:text="@string/app_name"
                 android:textSize="28sp" />
         </LinearLayout>
 
@@ -100,7 +100,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Opis: "
+                android:text="@string/opis"
                 android:textSize="28sp"
                 android:textStyle="bold"/>
 

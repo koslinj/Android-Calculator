@@ -3,6 +3,7 @@ package koslin.jan.calculator
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import koslin.jan.calculator.databinding.ActivityAdvancedCalculatorBinding
 import org.mariuszgromada.math.mxparser.Expression
@@ -14,7 +15,7 @@ class AdvancedCalculator : AppCompatActivity() {
     val RESULT_STATE = "RESULT"
     private lateinit var binding: ActivityAdvancedCalculatorBinding
 
-    private var canPutDecimal = false
+    private var canPutDecimal = true
     private var canMakeOperation = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +35,16 @@ class AdvancedCalculator : AppCompatActivity() {
 
     fun handleNumber(view: View) {
         view as Button
-        binding.helperTv.append(view.text)
-        canPutDecimal = true
-        canMakeOperation = true
+        if(view.text == "."){
+            if(canPutDecimal){
+                binding.helperTv.append(view.text)
+                canPutDecimal = false
+                canMakeOperation = false
+            }
+        } else {
+            binding.helperTv.append(view.text)
+            canMakeOperation = true
+        }
     }
 
     fun handleOperation(view: View) {
@@ -55,9 +63,11 @@ class AdvancedCalculator : AppCompatActivity() {
                     newText = newText.replace('.',',')
                 }
                 binding.helperTv.text = newText
+                canMakeOperation = true
+                return
             } else if (view.text == "+/-") {
                 val currentText = binding.helperTv.text.toString()
-                if (currentText[0] == '-') binding.helperTv.text = currentText
+                if (currentText[0] == '-') binding.helperTv.text = currentText.subSequence(1,currentText.length)
                 else binding.helperTv.text = "-$currentText"
                 canMakeOperation = true
                 return
@@ -65,12 +75,15 @@ class AdvancedCalculator : AppCompatActivity() {
                 val currentText = binding.helperTv.text.toString()
                 val newText = "($currentText)^2"
                 binding.helperTv.text = newText
+                canPutDecimal = true
             } else if (view.text == "x^y") {
                 val currentText = binding.helperTv.text.toString()
                 val newText = "($currentText)^"
                 binding.helperTv.text = newText
+                canPutDecimal = true
             } else {
                 binding.helperTv.append(view.text)
+                canPutDecimal = true
             }
             canMakeOperation = false
         }
@@ -79,6 +92,8 @@ class AdvancedCalculator : AppCompatActivity() {
     fun handleClear(view: View) {
         binding.helperTv.text = ""
         binding.resultTv.text = ""
+        canPutDecimal = true
+        canMakeOperation = false
     }
 
     fun handleBackspace(view: View) {
@@ -90,7 +105,11 @@ class AdvancedCalculator : AppCompatActivity() {
                     i++
                 }
                 binding.helperTv.text = binding.helperTv.text.substring(i + 1, len - 1)
-            } else binding.helperTv.text = binding.helperTv.text.substring(0, len - 1)
+            } else if(binding.helperTv.text.get(len - 1) == '.') {
+                canPutDecimal = true
+                binding.helperTv.text = binding.helperTv.text.substring(0, len - 1)
+            }
+            else binding.helperTv.text = binding.helperTv.text.substring(0, len - 1)
         }
     }
 
@@ -101,6 +120,10 @@ class AdvancedCalculator : AppCompatActivity() {
         val decimalFormat = DecimalFormat("#.#######")
         val formattedResult = decimalFormat.format(rawResult)
 
-        binding.resultTv.text = formattedResult
+        if(formattedResult == "NaN"){
+            binding.resultTv.text = "BŁĄD"
+            Toast.makeText(application, "Złe równanie!", Toast.LENGTH_SHORT).show()
+        }
+        else binding.resultTv.text = formattedResult
     }
 }
