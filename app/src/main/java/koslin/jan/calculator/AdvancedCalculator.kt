@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import koslin.jan.calculator.databinding.ActivityAdvancedCalculatorBinding
 import org.mariuszgromada.math.mxparser.Expression
 import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+import java.util.Locale
 
 
 class AdvancedCalculator : AppCompatActivity() {
@@ -117,7 +119,7 @@ class AdvancedCalculator : AppCompatActivity() {
         val e = Expression(binding.helperTv.text.toString())
         val rawResult = e.calculate()
 
-        val decimalFormat = DecimalFormat("#.#######")
+        val decimalFormat = DecimalFormat("#.#######", DecimalFormatSymbols(Locale.ENGLISH))
         val formattedResult = decimalFormat.format(rawResult)
 
         if(formattedResult == "NaN"){
