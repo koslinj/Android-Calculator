@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size">36sp</dimen>
+    <dimen name="backspaceSize">42sp</dimen>
+    <dimen name="changeSize">40sp</dimen>
+</resources>

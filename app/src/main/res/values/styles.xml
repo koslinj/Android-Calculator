@@ -11,14 +11,14 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">@dimen/size</item>
         <item name="android:onClick">handleNumber</item>
     </style>
     <style name="operationButton">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">@dimen/size</item>
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
         <item name="backgroundTint">@color/my_dark_primary</item>

@@ -86,7 +86,7 @@
                 android:onClick="handleBackspace"
                 android:text="⌫"
                 android:textColor="@color/red"
-                android:textSize="28sp" />
+                android:textSize="@dimen/backspaceSize" />
 
             <Button
                 style="@style/numberButton"
@@ -98,7 +98,7 @@
             <Button
                 style="@style/operationButton"
                 android:text="+/-"
-                android:textSize="30sp" />
+                android:textSize="@dimen/changeSize" />
         </LinearLayout>
 
         <LinearLayout style="@style/row">
