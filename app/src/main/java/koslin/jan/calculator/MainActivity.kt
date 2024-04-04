@@ -25,4 +25,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, About::class.java)
         startActivity(intent)
     }
+
+    fun exitApp(view: View) {
+        finish();
+        System.exit(0);
+    }
 }

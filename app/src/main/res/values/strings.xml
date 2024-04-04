@@ -4,6 +4,7 @@
     <string name="kalkulator_prosty">Simple Calculator</string>
     <string name="kalkulator_zaawansowany">Advanced Calculator</string>
     <string name="o_aplikacji">About</string>
+    <string name="exit">Exit</string>
     <string name="informacje_o_aplikacji">INFO ABOUT APP</string>
     <string name="autor">Author:</string>
     <string name="nr_indeksu">Index no:</string>
